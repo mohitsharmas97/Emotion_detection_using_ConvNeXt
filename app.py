@@ -144,9 +144,9 @@ def video_feed():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
 # --- 6. Main Execution ---
 if __name__ == '__main__':
-    # Note: Using debug=True with live video can sometimes cause issues.
-    # Set to False if you experience lag or crashes.
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))  # Render assigns PORT dynamically
+    # Do NOT use debug=True in production
+    app.run(host='0.0.0.0', port=port, debug=False)
+
