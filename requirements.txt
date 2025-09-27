@@ -1,6 +1,7 @@
 flask
-opencv-python
 torch
 torchvision
 numpy
+Pillow
+opencv-python-headless
 gunicorn
